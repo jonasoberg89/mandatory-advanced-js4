@@ -1,33 +1,67 @@
-.App {
-  text-align: center;
+body,html{
+  height: 100%;
+  margin: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
+#root{
+  height: 100%;
+  background-image: url("https://bnetcmsus-a.akamaihd.net/cms/gallery/6V1SW4QDOB4W1539119599198.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.App{
+  height: 100%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.userHeadline{
+  margin: 0;
+  height: 150px;
+  width: 800px;
+  text-align: center;
 }
+.userHeadline h1 {
+  color:#fff;
+  font-size: 50px;
+  opacity: 0.6;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.userContainer{
+  margin: 0;
+  height: 400px;
+  width: 800px;
+  display: flex;
+}
+.hordeContainer{
+  cursor: pointer;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  background-image: url("https://seeklogo.net/wp-content/uploads/2013/06/world-of-warcraft-horde-vector-logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all .5s ease-in-out; 
+}
+.hordeContainer:hover{
+  transform: scale(1.2);
+}
+.allianceContainer{
+  cursor: pointer;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  background-image: url("https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/e6bca696c4fb4a3badc8d57cf1f3ab78_Large.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all .5s ease-in-out; 
+}
+.allianceContainer:hover{
+  transform: scale(1.2);
 }
