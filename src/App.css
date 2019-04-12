@@ -29,6 +29,7 @@ body,html{
   color:#fff;
   font-size: 50px;
   opacity: 0.6;
+  src: url ("./LifeCraft_Font")
 
 }
 .userContainer{
@@ -65,3 +66,45 @@ body,html{
 .allianceContainer:hover{
   transform: scale(1.2);
 }
+.userInfo{
+  position: absolute;
+  height: 400px;
+  width: 204px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.Gameboard{
+  height: 600px;
+  width: 1000px;
+  display: flex;
+  border-radius: 10%;
+}
+.row{
+height: 100%;
+width: 20%;
+display: flex;
+flex-direction: column;
+}
+.transparent{
+  position: absolute;
+  height: 600px;
+  width: 1000px;
+  background: rgba(0,0,0,0.3);
+  opacity: 0.5;
+
+}
+.circle{
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  width: 70%;
+  height: 14%;
+  margin: 7px;
+  -webkit-justify-content: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
