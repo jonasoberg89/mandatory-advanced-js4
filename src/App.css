@@ -107,4 +107,24 @@ flex-direction: column;
   justify-content: center;
   cursor: pointer;
 }
+.gamemode{
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.gamemode h1{
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 60px;
+  cursor: pointer;
+  transition: all .5s ease-in-out; 
+}
+
+.gamemode h1:hover{
+  transform: scale(1.5);
+}

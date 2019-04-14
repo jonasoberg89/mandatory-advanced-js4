@@ -7,6 +7,7 @@ const allianceAudio = new Audio("https://wow.zamimg.com/wowsounds/1902387");
 
 function appFunction() {
   const [player, setPlayer] = useState(null);
+  const [game, setGame] = useState(null);
   const [picture, setPicture] = useState({})
   const userImg = useRef(null);
 
@@ -31,11 +32,16 @@ function appFunction() {
       setPlayer("alliance")
     }, 2000);
   }
+  function gameMode (mode){
+    setTimeout(function () {
+      setGame(mode)
+    }, 500);
+  }
 
-  if (!player) {
+  if (!game) {
     return (
       <div className="App">
-        <User horde={hordeUser} alliance={allianceUser} />
+        <User gamemode={gameMode} player={player} horde={hordeUser} alliance={allianceUser} />
       </div>
     );
   }
@@ -49,7 +55,7 @@ function appFunction() {
           className="userInfo">
         </div>
         <div className="App">
-          <Game />
+          <Game player={player} />
         </div>
       </>
     )
