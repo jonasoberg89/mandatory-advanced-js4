@@ -87,7 +87,8 @@ body,html{
 height: 100%;
 width: 20%;
 display: flex;
-flex-direction: column;
+flex-direction: column-reverse;
+z-index: 1;
 }
 .transparent{
   position: absolute;
@@ -105,7 +106,6 @@ flex-direction: column;
   margin: 7px;
   -webkit-justify-content: center;
   justify-content: center;
-  cursor: pointer;
 }
 .gamemode{
   height: 400px;

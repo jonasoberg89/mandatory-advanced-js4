@@ -2,17 +2,20 @@ import React, { useState, useRef } from 'react';
 import '../App.css';
 
 const rows = Array(7).fill(null).map((_, idx) => idx);
-const coins = Array(6).fill(null).map((_, idx) => idx);
+for (let row of rows){
+    const coins = Array(6).fill(null).map((_, idx) => idx);
+    rows[row]=[...coins]
+}
 let currentId = 0;
 let currentRow = 0;
 
 function generateId() {
-    const rv = "item-" + currentId;
+    const rv = currentId;
     currentId += 1;
     return rv;
 }
 function generateRow() {
-    const rv = "item-" + currentId;
+    const rv =  currentRow;
     currentRow += 1;
     return rv;
 }
@@ -20,24 +23,36 @@ function generateRow() {
 function userFunction(props) {
     const circleElement = useRef(null);
     const [turn, setTurn]= useState(props.player)
+    const [singleplayer,setSingelplayer] = useState(props.gamemode)
     const board = new Array(42);
 
-    const onButtonClick = (e) => {
-        let row = e.target.parentElement
-        console.log (row.children)
+    const onButtonClick = (row,index) => {
+        console.log(row)
+        console.log(index)
+     
+        findLastEmptyCell(row)
+    
+    }
+    const findLastEmptyCell= (col) =>{
+        for(let i = 0;i<col.length;i++){
+            const cell = col[i];
+            console.log (cell.data)
+        }
+        return null;
     }
 
     return (
         <>
             <div className="Gameboard">
-                {rows.map(row =>
-                    <div className="row" onClick={onButtonClick} key={generateRow()}>
-                        {coins.map(x => 
-                        <div ref={circleElement}
-                            key = {generateId()}
-                            className="circle" 
-                        >
-                        </div>)}
+                {rows.map((row,index )=>
+                    <div className="row" onClick={() => onButtonClick(row,index)} id={generateRow()} key={currentRow}>
+                        {rows[index].map(x => 
+                            <div ref={circleElement}
+                                data ="empty"
+                                id = {generateId()}
+                                key = {currentId}
+                                className="circle">
+                            </div>)}
                     </div>)}
             </div>
         </>
