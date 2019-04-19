@@ -9,10 +9,8 @@ let winnerCombosDiagonal = [
 ]
 function checkForWinner(array,index,player){
     const testVertical = winnerCombosVertical.find(combo => combo.every(line =>array[index][line]===player)) 
-    if(testVertical){
-       return player;
-    }
-    console.log(player)
+    if(testVertical)return player;
+
     const winnerCombosHorizontal = array.map((colum) => colum.indexOf(player))
     console.log(winnerCombosHorizontal);
 }
