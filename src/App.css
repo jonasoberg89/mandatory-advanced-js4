@@ -83,7 +83,8 @@ body,html{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
+  opacity: 0.8;
+} 
 .user2Info{
   height: 400px;
   width: 230px;
@@ -92,6 +93,7 @@ body,html{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  opacity: 0.8;
 }
 
 .Gameboard{
@@ -105,6 +107,8 @@ height: 100%;
 width: 20%;
 display: flex;
 flex-direction: column-reverse;
+justify-content: center;
+align-items: center;
 z-index: 1;
 }
 .transparent{
@@ -131,7 +135,7 @@ z-index: 1;
   background-position: center;
 }
 .alliance{
-  background-image: url("https://cdn0.iconfinder.com/data/icons/world-of-warcraft-wow-faction-and-class/199/Alliance-512.png");
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d099d316-98cf-4095-a2f9-32cca4219baa/dam5zdb-54a8509e-0aa6-43aa-92ca-56a917596d4c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwOTlkMzE2LTk4Y2YtNDA5NS1hMmY5LTMyY2NhNDIxOWJhYVwvZGFtNXpkYi01NGE4NTA5ZS0wYWE2LTQzYWEtOTJjYS01NmE5MTc1OTZkNGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pIG8oY5ldYlgvBFfg05NDdTKd4TH_IAoUY41Dbj9Gmk");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

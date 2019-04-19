@@ -1,7 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Classnames from "classnames"
 import checkForWinner from "./checkforwinner.js"
 import '../App.css';
+
+const backgroundMusic = new Audio("https://wow.zamimg.com/wowsounds/772738");
+const hordeAudio = new Audio("https://wow.zamimg.com/wowsounds/1324843");
+const allianceAudio = new Audio("https://wow.zamimg.com/wowsounds/1324777");
+hordeAudio.volume = 0.2;
+allianceAudio.volume = 0.2;
 
 const rows = Array(7).fill(null).map((_, idx) => idx);
 for (let row of rows) {
@@ -26,13 +32,21 @@ function userFunction(props) {
     const [column, setColumn] = useState(rows)
     const [turn, setTurn] = useState(props.player)
     // const [singleplayer,setSingelplayer] = useState(props.gamemode)
+    
+  useEffect(() => {
+    backgroundMusic.play();
+  },[]);
 
     const onButtonClick = (row, index) => {
+        if (turn === "horde"){ hordeAudio.play();}
+        else{ allianceAudio.play();}
+
         let arrayCopy = [...column]
         let col = arrayCopy[index];
         findLastEmptyCell(col)
         setColumn(arrayCopy);
         console.log(checkForWinner(column,index,turn))
+
         if(turn === "horde"){
             setTurn("alliance")
         }else{
