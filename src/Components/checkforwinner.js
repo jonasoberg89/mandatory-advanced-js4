@@ -3,17 +3,18 @@ let winnerCombosVertical = [
     [1,2,3,4],
     [2,3,4,5],
 ]
-let winnerCombosHorisental = [
 
-]
 let winnerCombosDiagonal = [
 
 ]
 function checkForWinner(array,index,player){
-    const testVertical = winnerCombosVertical.find (combo => combo.every(line =>array[index][line]===player)) 
+    const testVertical = winnerCombosVertical.find(combo => combo.every(line =>array[index][line]===player)) 
     if(testVertical){
        return player;
     }
+    console.log(player)
+    const winnerCombosHorizontal = array.map((colum) => colum.indexOf(player))
+    console.log(winnerCombosHorizontal);
 }
 
 export default checkForWinner
