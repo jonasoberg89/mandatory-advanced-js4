@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
+import Classnames from "classnames"
+import checkForWinner from "./checkforwinner.js"
 import '../App.css';
 
 const rows = Array(7).fill(null).map((_, idx) => idx);
-for (let row of rows){
-    const coins = Array(6).fill(null).map((_, idx) => idx);
-    rows[row]=[...coins]
+for (let row of rows) {
+    const coins = Array(6).fill(null).map((_, idx) => null);
+    rows[row] = [...coins]
 }
 let currentId = 0;
 let currentRow = 0;
@@ -15,43 +17,47 @@ function generateId() {
     return rv;
 }
 function generateRow() {
-    const rv =  currentRow;
+    const rv = currentRow;
     currentRow += 1;
     return rv;
 }
 
 function userFunction(props) {
-    const circleElement = useRef(null);
-    const [turn, setTurn]= useState(props.player)
-    const [singleplayer,setSingelplayer] = useState(props.gamemode)
-    const board = new Array(42);
+    const [column, setColumn] = useState(rows)
+    const [turn, setTurn] = useState(props.player)
+    // const [singleplayer,setSingelplayer] = useState(props.gamemode)
 
-    const onButtonClick = (row,index) => {
-        console.log(row)
-        console.log(index)
-     
-        findLastEmptyCell(row)
-    
+    const onButtonClick = (row, index) => {
+        let arrayCopy = [...column]
+        let col = arrayCopy[index];
+        findLastEmptyCell(col)
+        setColumn(arrayCopy);
+        console.log(checkForWinner(column,index,turn))
+        if(turn === "horde"){
+            setTurn("alliance")
+        }else{
+            setTurn("horde")
+        }
     }
     const findLastEmptyCell= (col) =>{
-        for(let i = 0;i<col.length;i++){
-            const cell = col[i];
-            console.log (cell.data)
+        for (let i = 0; i < col.length; i++) {
+            if (col[i] === null) {
+                col[i] = turn;
+                return
+            }
         }
-        return null;
+        return null
     }
 
     return (
         <>
             <div className="Gameboard">
-                {rows.map((row,index )=>
-                    <div className="row" onClick={() => onButtonClick(row,index)} id={generateRow()} key={currentRow}>
-                        {rows[index].map(x => 
-                            <div ref={circleElement}
-                                data ="empty"
-                                id = {generateId()}
-                                key = {currentId}
-                                className="circle">
+                {column.map((row, index) =>
+                    <div className="row" onClick={() => onButtonClick(row, index)} key={generateRow()}>
+                        {column[index].map(player =>
+                            <div
+                                key={generateId()}
+                                className={Classnames("circle",[player])}>
                             </div>)}
                     </div>)}
             </div>
