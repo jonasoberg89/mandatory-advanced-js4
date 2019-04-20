@@ -15,10 +15,10 @@ function appFunction() {
 
   useEffect(() => {
     if (player === "horde") {
-      setPicture("http://www.stickpng.com/assets/thumbs/5a576ab91c992a034569ab78.png");
-      setPicture2("http://www.stickpng.com/assets/images/5a576a1a1c992a034569ab70.png");
+      setPicture("https://seeklogo.net/wp-content/uploads/2013/06/world-of-warcraft-horde-vector-logo.png");
+      setPicture2("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d099d316-98cf-4095-a2f9-32cca4219baa/dam5zdb-54a8509e-0aa6-43aa-92ca-56a917596d4c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwOTlkMzE2LTk4Y2YtNDA5NS1hMmY5LTMyY2NhNDIxOWJhYVwvZGFtNXpkYi01NGE4NTA5ZS0wYWE2LTQzYWEtOTJjYS01NmE5MTc1OTZkNGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pIG8oY5ldYlgvBFfg05NDdTKd4TH_IAoUY41Dbj9Gmk");
     } else {
-      setPicture("http://www.stickpng.com/assets/images/5a576a1a1c992a034569ab70.png");
+      setPicture("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d099d316-98cf-4095-a2f9-32cca4219baa/dam5zdb-54a8509e-0aa6-43aa-92ca-56a917596d4c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwOTlkMzE2LTk4Y2YtNDA5NS1hMmY5LTMyY2NhNDIxOWJhYVwvZGFtNXpkYi01NGE4NTA5ZS0wYWE2LTQzYWEtOTJjYS01NmE5MTc1OTZkNGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pIG8oY5ldYlgvBFfg05NDdTKd4TH_IAoUY41Dbj9Gmk");
       setPicture2("http://www.stickpng.com/assets/thumbs/5a576ab91c992a034569ab78.png");
     }
   }, [player]);

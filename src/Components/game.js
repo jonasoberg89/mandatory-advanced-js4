@@ -4,6 +4,7 @@ import checkForWinner from "./checkforwinner.js"
 import '../App.css';
 
 const backgroundMusic = new Audio("https://wow.zamimg.com/wowsounds/772738");
+backgroundMusic.loop = true;
 const hordeAudio = new Audio("https://wow.zamimg.com/wowsounds/1324843");
 const allianceAudio = new Audio("https://wow.zamimg.com/wowsounds/1324777");
 hordeAudio.volume = 0.2;

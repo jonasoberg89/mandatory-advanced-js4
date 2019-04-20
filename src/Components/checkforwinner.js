@@ -4,15 +4,31 @@ let winnerCombosVertical = [
     [2,3,4,5],
 ]
 
-let winnerCombosDiagonal = [
+function check(array, length) {
+    var count = 0,
+        value = array[0];
 
-]
+    return array.some(function (a) {
+        if (value !== a) {
+            count = 0;
+            value = a;
+        }
+        return ++count === length;
+    });
+}
 function checkForWinner(array,index,player){
     const testVertical = winnerCombosVertical.find(combo => combo.every(line =>array[index][line]===player)) 
     if(testVertical)return player;
+    
+    for (let i =0;i < 6;i++){
+        const winnerCombosHorizontal = array.map((colum) =>{
+        return colum[i];
+        })
+   
+        console.log( check(winnerCombosHorizontal,4))
+    }
 
-    const winnerCombosHorizontal = array.map((colum) => colum.indexOf(player))
-    console.log(winnerCombosHorizontal);
+ 
 }
 
 export default checkForWinner

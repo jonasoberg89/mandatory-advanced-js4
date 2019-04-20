@@ -83,17 +83,15 @@ body,html{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
 } 
 .user2Info{
   height: 400px;
-  width: 230px;
+  width: 257px;
   margin-top: -185px;
   border-radius: 15%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
 }
 
 .Gameboard{
