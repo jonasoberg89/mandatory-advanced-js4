@@ -49,6 +49,7 @@ function appFunction() {
     console.log("exit")
     setGame(null);
     setPlayer(null)
+    setTurn(true);
   }
 
   if (!game) {
