@@ -48,6 +48,7 @@ function userFunction(props) {
             backgroundMusic.pause();
             backgroundMusic.currentTime = 0;
         }
+        
     }, [winner]);
  
     const onButtonClick = (row, index) => {
@@ -56,10 +57,10 @@ function userFunction(props) {
 
         let arrayCopy = [...column]
         let col = arrayCopy[index];
+        props.functionTurn();
         findLastEmptyCell(col)
         setColumn(arrayCopy);
         setWinner(checkForWinner(column, index, turn));
-        props.functionTurn();
         if (turn === "horde") {
             setTurn("alliance")
         } else {

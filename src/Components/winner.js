@@ -14,6 +14,7 @@ function winner(props) {
 
     }, [props.player])
 
+    
     return (
         <div className="overlay">
             <div className="winner-container">
