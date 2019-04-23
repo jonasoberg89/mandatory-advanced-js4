@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import User from "./Components/user.js"
 import Game from "./Components/game.js"
 import './App.css';
@@ -9,17 +9,18 @@ const allianceAudio = new Audio("https://wow.zamimg.com/wowsounds/1902387");
 
 function appFunction() {
   const [player, setPlayer] = useState(null);
+  const [turn, setTurn] = useState(true);
   const [game, setGame] = useState(null);
   const [picture, setPicture] = useState();
-  const [picture2,setPicture2] = useState();
+  const [picture2, setPicture2] = useState();
 
   useEffect(() => {
     if (player === "horde") {
-      setPicture("http://www.stickpng.com/assets/thumbs/5a576ab91c992a034569ab78.png");
-      setPicture2("http://www.stickpng.com/assets/images/5a576a1a1c992a034569ab70.png");
+      setPicture("https://www.usfine.com/images/game_left/world-of-warcraft.png");
+      setPicture2("http://heroes.blizzplanet.com/wp-content/uploads/2015/11/blizzcon-2015-genn-greymane-human.png");
     } else {
-      setPicture("http://www.stickpng.com/assets/images/5a576a1a1c992a034569ab70.png");
-      setPicture2("http://www.stickpng.com/assets/thumbs/5a576ab91c992a034569ab78.png");
+      setPicture("http://heroes.blizzplanet.com/wp-content/uploads/2015/11/blizzcon-2015-genn-greymane-human.png");
+      setPicture2("https://www.usfine.com/images/game_left/world-of-warcraft.png");
     }
   }, [player]);
 
@@ -41,6 +42,14 @@ function appFunction() {
       setGame(mode)
     }, 500);
   }
+  function turnFunction() {
+    setTurn(!turn);
+  }
+  function exitGame(){
+    console.log("exit")
+    setGame(null);
+    setPlayer(null)
+  }
 
   if (!game) {
     return (
@@ -53,19 +62,23 @@ function appFunction() {
     return (
       <>
         <div className="App">
-        <div
-          style={{
-            backgroundImage: `url(${picture})`,
-          }}
-          className={Classnames("userInfo")}>
-        </div>
-          <Game player={player} />
-          <div 
-          style={{
-            backgroundImage: `url(${picture2})`,
-          }}
-          className="user2Info">
-        </div>
+          <div
+            style={{
+              backgroundImage: `url(${picture})`,
+            }}
+            className={Classnames("userInfo",
+            { "active":turn===true})}
+            >
+          </div>
+          <Game player={player} exitgame={exitGame} functionTurn={turnFunction} />
+          <div
+            style={{
+              backgroundImage: `url(${picture2})`,
+            }}
+            className={Classnames("user2Info",
+              { "active":turn===false})}
+          >
+          </div>
         </div>
 
       </>

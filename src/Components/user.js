@@ -22,8 +22,8 @@ function userFunction(props) {
                     <h1>Choose mode</h1>
                 </div>
                 <div className="userContainer">
-                    <div className="gamemode"><h1 onClick={()=>{props.gamemode("1vs1")}}>1vs1</h1></div>
-                    <div className="gamemode"><h1 onClick={()=>{props.gamemode("ai")}}>AI</h1></div>
+                    <div className="gamemode"><h1 onClick={() => { props.gamemode("1vs1") }}>1vs1</h1></div>
+                    <div className="gamemode"><h1 onClick={() => { props.gamemode("ai") }}>AI</h1></div>
                 </div>
             </>
         )
