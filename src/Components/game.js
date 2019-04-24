@@ -12,11 +12,11 @@ hordeAudio.volume = 0.2;
 allianceAudio.volume = 0.2;
 
 function generateBoard() {
-const rows = Array(7).fill(null).map((_, idx) => idx);
-for (let row of rows) {
-    const coins = Array(6).fill(null).map((_, idx) => null);
-    rows[row] = [...coins]
-}
+    const rows = Array(7).fill(null).map((_, idx) => idx);
+    for (let row of rows) {
+        const coins = Array(6).fill(null).map((_, idx) => null);
+        rows[row] = [...coins]
+    }
     return rows;
 }
 
@@ -37,7 +37,7 @@ function generateRow() {
 function userFunction(props) {
     const [column, setColumn] = useState(generateBoard())
     const [turn, setTurn] = useState(props.player)
-    const [winner,setWinner] = useState("");
+    const [winner, setWinner] = useState("");
     // const [singleplayer,setSingelplayer] = useState(props.gamemode)
 
     useEffect(() => {
@@ -45,23 +45,23 @@ function userFunction(props) {
     }, []);
 
     useEffect(() => {
-        if (winner){
+        if (winner) {
             backgroundMusic.pause();
             backgroundMusic.currentTime = 0;
         }
-        
+
     }, [winner]);
- 
+
     const onButtonClick = (row, index) => {
         let arrayCopy = [...column]
         let col = arrayCopy[index];
-        if(findLastEmptyCell(col)===null)return;
-        if (turn === "horde"){
-            hordeAudio.currentTime = 0; 
-            hordeAudio.play(); 
-        }else {
-            allianceAudio.currentTime = 0; 
-            allianceAudio.play(); 
+        if (findLastEmptyCell(col) === null) return;
+        if (turn === "horde") {
+            hordeAudio.currentTime = 0;
+            hordeAudio.play();
+        } else {
+            allianceAudio.currentTime = 0;
+            allianceAudio.play();
         }
         props.functionTurn();
         setColumn(arrayCopy);
@@ -79,12 +79,20 @@ function userFunction(props) {
                 return
             }
         }
-
         return null
     }
+    const resetUser = () => {
+        setWinner("")
+        props.functionTurn();
+        if (turn === "horde") {
+            setTurn("alliance")
+        } else {
+            setTurn("horde")
+        }
+    }
     return (
-        <>  
-            { winner ? <Winner exitgame={() => { setColumn(generateBoard()); props.exitgame(); }} player={winner} /> : null}
+        <>
+            {winner ? <Winner restartgame={() => { setColumn(generateBoard()); resetUser() }} exitgame={() => { setColumn(generateBoard()); props.exitgame(); }} player={winner} /> : null}
             <div className="Gameboard">
                 {column.map((row, index) =>
                     <div className="row" onClick={() => onButtonClick(row, index)} key={generateRow()}>

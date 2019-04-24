@@ -52,7 +52,7 @@ function checkForWinner(array, index, player) {
             }
         }
     }
-        if (draw)return draw;
+        if (draw)return "Burning Legion";
 
 
 }
