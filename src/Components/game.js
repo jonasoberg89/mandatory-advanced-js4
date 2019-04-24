@@ -84,6 +84,7 @@ function userFunction(props) {
     const resetUser = () => {
         setWinner("")
         props.functionTurn();
+        backgroundMusic.play();
         if (turn === "horde") {
             setTurn("alliance")
         } else {
