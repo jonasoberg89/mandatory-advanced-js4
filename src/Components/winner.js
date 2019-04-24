@@ -2,20 +2,25 @@ import React, { useEffect } from 'react';
 
 const hordeCheer = new Audio("https://wow.zamimg.com/wowsounds/567388");
 const allianceCheer = new Audio("https://wow.zamimg.com/wowsounds/567383");
+const legion = new Audio("https://wow.zamimg.com/wowsounds/598232")
 
 function winner(props) {
 
     useEffect(() => {
         if (props.player === "horde") {
             hordeCheer.play();
-        } else {
+        } else if (props.player ==="alliance") {
             allianceCheer.play();
+        }else{
+            legion.play();
         }
         return () => {
             hordeCheer.pause();
             allianceCheer.pause();
+            legion.pause();
             hordeCheer.currentTime = 0;
             allianceCheer.currentTime = 0;
+            legion.currentTime = 0;
         }
     }, [props.player])
 
