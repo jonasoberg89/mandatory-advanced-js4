@@ -43,6 +43,7 @@ function userFunction(props) {
     useEffect(() => {
         backgroundMusic.play();
     }, []);
+
     useEffect(() => {
         if (winner){
             backgroundMusic.pause();
@@ -52,13 +53,17 @@ function userFunction(props) {
     }, [winner]);
  
     const onButtonClick = (row, index) => {
-        if (turn === "horde") { hordeAudio.play(); }
-        else { allianceAudio.play(); }
-
         let arrayCopy = [...column]
         let col = arrayCopy[index];
+        if(findLastEmptyCell(col)===null)return;
+        if (turn === "horde"){
+            hordeAudio.currentTime = 0; 
+            hordeAudio.play(); 
+        }else {
+            allianceAudio.currentTime = 0; 
+            allianceAudio.play(); 
+        }
         props.functionTurn();
-        findLastEmptyCell(col)
         setColumn(arrayCopy);
         setWinner(checkForWinner(column, index, turn));
         if (turn === "horde") {
@@ -74,9 +79,9 @@ function userFunction(props) {
                 return
             }
         }
+
         return null
     }
-
     return (
         <>  
             { winner ? <Winner exitgame={() => { setColumn(generateBoard()); props.exitgame(); }} player={winner} /> : null}

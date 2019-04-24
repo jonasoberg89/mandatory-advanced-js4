@@ -36,9 +36,9 @@ body,html{
 }
 .userHeadline h1 {
   color:#fff;
-  font-size: 50px;
-  opacity: 0.6;
-  src: url ("./LifeCraft_Font")
+  font-size: 60px;
+  opacity: 0.7;
+  font-family: 'UnifrakturCook', cursive;
 
 }
 .userContainer{
@@ -154,6 +154,7 @@ z-index: 1;
   display:flex;
   justify-content: center;
   align-items: center;
+  font-family: 'UnifrakturCook', cursive;
 }
 
 .gamemode h1{
@@ -166,7 +167,7 @@ z-index: 1;
 }
 
 .gamemode h1:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .overlay{
   height: 100vh;

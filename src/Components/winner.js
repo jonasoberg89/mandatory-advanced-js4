@@ -11,8 +11,15 @@ function winner(props) {
         } else {
             allianceCheer.play();
         }
-
+        return () => {
+            hordeCheer.pause();
+            allianceCheer.pause();
+            hordeCheer.currentTime = 0;
+            allianceCheer.currentTime = 0;
+        }
     }, [props.player])
+
+   
 
     
     return (
@@ -29,7 +36,7 @@ function winner(props) {
                         <p>
                             The horde advanced on the battlefield, and after a heroic effort by Orcish leader,
                             <br />
-                            the horde stod victorious! And the leader of the Alliance became food for the hungry wolfs!
+                            the horde stod victorious! And the survinving humans became food for the hungry wolfs!
                             <br />
                             <br />
                             FOR THE HORDE!
